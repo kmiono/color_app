@@ -37,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     var random = math.Random();
 
-    String hex = random.nextInt(100000).toRadixString(16);
+    String hex = random.nextInt(150000).toRadixString(16);
 
     if (hex.length < 6) {
       hex = hex.padLeft(6, "0");
@@ -52,13 +52,20 @@ class _MyHomePageState extends State<MyHomePage> {
               '#$hex',
               style: TextStyle(
                 fontSize: 20,
-                color: Color.fromARGB(255, 0, 0, 0).computeLuminance() < 0.5
+                color: Color(0xFF00677F).computeLuminance() < 0.5
                     ? Colors.white // 背景が暗いとき
                     : Colors.black,
               ),
             ),
           ],
         ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.refresh),
+        onPressed: () {
+          setState(() {});
+        },
       ),
     );
   }
