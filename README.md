@@ -1,16 +1,15 @@
 # color_app
 
-A new Flutter project.
+ランダムカラー表示アプリ  
+学習用
 
-## Getting Started
+## 何をしているか
 
-This project is a starting point for a Flutter application.
+ランダム生成した数値を`toRadixString()`で16進の文字列に変換  
+Flutterで使用できる値に整形した後`color`プロパティに渡してランダムな背景色を表示  
+更新ボタン（FAB）を押すことにより背景色はランダムに切り替え可能
 
-A few resources to get you started if this is your first Flutter project:
+## 反省点
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+色に対応するカラーコードを表示させているが、明暗判定が雑で文字が読みづらいことがある。
+生成している値の都合上寒色しか出ない（知識不足）
