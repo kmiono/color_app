@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
+import 'package:flutter/rendering.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -12,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Random Color Page',
       theme: ThemeData(
         useMaterial3: false,
       ),
@@ -23,15 +25,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
 
   final String title;
 
@@ -57,6 +50,12 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             Text(
               '#$hex',
+              style: TextStyle(
+                fontSize: 20,
+                color: Color.fromARGB(255, 0, 0, 0).computeLuminance() < 0.5
+                    ? Colors.white // 背景が暗いとき
+                    : Colors.black,
+              ),
             ),
           ],
         ),
@@ -77,5 +76,4 @@ class HexColor extends Color {
   HexColor(final String hexColor) : super(_getColorFromHex(hexColor));
 }
 
-// TODO: 文字を見やすくする
 // 更新ボタンの実装
